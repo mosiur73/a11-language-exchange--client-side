@@ -20,8 +20,8 @@ const Navbar = () => {
 
   const links = < >
     <li><NavLink to="/">Home</NavLink></li>
-    <li><NavLink to="/myApplications">Find tutors</NavLink></li>
-    <li><NavLink to="/addJob">Add Tutorials</NavLink></li>
+    <li><NavLink to="/findTutors">Find tutors</NavLink></li>
+    <li><NavLink to="/addTutorials">Add Tutorials</NavLink></li>
     <li><NavLink to="/myPostedJobs">My Tutorials </NavLink></li>
     <li><NavLink to="/myPostedJobs">My booked </NavLink></li>
   </>
@@ -49,7 +49,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-2xl">Language Exchange </a>
+        <a className="btn btn-ghost text-2xl ">Language Exchange </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
