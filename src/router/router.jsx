@@ -7,6 +7,7 @@ import ErrorPage from "../component/ErrorPage/ErrorPage";
 import AddTutorials from "../Pages/AddTutorials/AddTutorials";
 import FindTutors from "../Pages/FindTutors/FindTutors";
 import TutorDetails from "../Pages/TutorDetails/TutorDetails";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
         },
         {
          path:"/addTutorials",
-         element:<AddTutorials></AddTutorials>
+         element:<PrivateRoute><AddTutorials></AddTutorials></PrivateRoute>
         },
         {
          path:"/findTutors",
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
         },
         {
           path:"/language/:id",
-          element:<TutorDetails></TutorDetails>,
+          element:<PrivateRoute><TutorDetails></TutorDetails></PrivateRoute>,
          loader: ({params}) => fetch(`http://localhost:5000/language/${params.id}`)
           
         },

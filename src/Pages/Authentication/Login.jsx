@@ -10,7 +10,8 @@ const Login = () => {
   const {singInUser,singInWithGoogle}=useContext(AuthContext)
   const navigate=useNavigate()
   const location = useLocation()
-  const from = location?.state || '/'
+  const from=location.state || '/';
+ 
 
   const handleSignIn = async e => {
     e.preventDefault()
@@ -24,7 +25,7 @@ const Login = () => {
     .then(result => {
         console.log('sign in', result.user)
         toast.success('Signin Successful')
-        navigate(from);
+        navigate(from)
     })
     .catch(error => {
         console.log(error);
