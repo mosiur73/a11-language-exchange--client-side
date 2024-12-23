@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import AuthContext from '../../Provider/AuthContext';
 import toast from 'react-hot-toast';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const AddTutorials = () => {
     const {user}=useContext(AuthContext)
@@ -30,9 +31,15 @@ const AddTutorials = () => {
        
        .then(data =>{
         console.log(data)
-        if(data.insertedId  > 0){
+        if(data.insertedId){
 
-          toast.success('Data Added Successfully!!!')
+          Swal.fire({
+                       position: "top-start",
+                       icon: "success",
+                       title: "Your work has been saved",
+                       showConfirmButton: false,
+                       timer: 2000
+                     });
         }
         form.reset('')
        
