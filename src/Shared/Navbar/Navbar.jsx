@@ -5,7 +5,7 @@ import AuthContext from '../../Provider/AuthContext';
 import toast from 'react-hot-toast';
 
 const Navbar = () => {
-  const { user,signOutUser } = useContext(AuthContext)
+  const { user,signOutUser,theme,toggleTheme } = useContext(AuthContext)
 
   const handleSignOut = () => {
     signOutUser()
@@ -57,6 +57,11 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
+      <div className='navbar'>
+ <button onClick={toggleTheme} className="theme-toggle-btn mr-4">
+                {theme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode'}
+            </button>
+ </div>
         {
           user ? <>
           

@@ -95,15 +95,15 @@ const AddTutorials = () => {
                 id='language'
                 className='border p-2 rounded-md'
               >
-                <option value="en">English</option>
-                <option value="es">Spanish</option>
-                <option value="fr">French</option>
-                <option value="de">German</option>
-                <option value="it">Italian</option>
-                <option value="zh">Chinese</option>
-                <option value="ja">Japanese</option>
-                <option value="ar">Arabic</option>
-                <option value="hi">Hindi</option>
+                <option value="English">English</option>
+                <option value="Spanish">Spanish</option>
+                <option value="French">French</option>
+                <option value="German">German</option>
+                <option value="Italian">Italian</option>
+                <option value="Chinese">Chinese</option>
+                <option value="Japanese">Japanese</option>
+                <option value="Arabic">Arabic</option>
+                <option value="Hindi">Hindi</option>
               </select>
             </div>
 

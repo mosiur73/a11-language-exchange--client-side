@@ -7,6 +7,7 @@ const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [theme, setTheme] = useState('light');
 
 
     const createUser = (email, password) => {
@@ -49,6 +50,14 @@ const AuthProvider = ({children}) => {
         }
     }, [])
 
+    // Toggle between dark and light themes
+    const toggleTheme = () => {
+        const newTheme = theme === 'light' ? 'dark' : 'light';
+        setTheme(newTheme);
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme); 
+    };
+
 
     const authInfo={
         user,
@@ -58,7 +67,9 @@ const AuthProvider = ({children}) => {
         singInUser,
         singInWithGoogle,
         signOutUser,
-        updateUserProfile
+        updateUserProfile,
+        toggleTheme,
+        theme
 
     }
 
