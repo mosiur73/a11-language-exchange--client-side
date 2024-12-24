@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import AuthContext from '../../Provider/AuthContext';
 import axios from 'axios';
 import toast from 'react-hot-toast';
@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 
 const TutorDetails = () => {
     const {user}=useContext(AuthContext)
+    const navigate=useNavigate()
     const {name,image,review,language,price,description,_id,email}=useLoaderData()
    
     const data = {
@@ -40,7 +41,7 @@ const TutorDetails = () => {
               timer: 1500
             });
            
-          
+          navigate('/bookedTutor')
            
           }
           

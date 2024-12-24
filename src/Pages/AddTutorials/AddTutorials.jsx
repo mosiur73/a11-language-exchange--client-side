@@ -3,9 +3,11 @@ import AuthContext from '../../Provider/AuthContext';
 import toast from 'react-hot-toast';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const AddTutorials = () => {
   const { user } = useContext(AuthContext)
+  const navigate=useNavigate()
 
   const handleSubmit = async e => {
     e.preventDefault()
@@ -42,6 +44,7 @@ const AddTutorials = () => {
           });
         }
         form.reset('')
+        navigate("/myTutorial")
 
       })
   }

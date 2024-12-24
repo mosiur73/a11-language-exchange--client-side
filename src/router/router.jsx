@@ -8,6 +8,8 @@ import AddTutorials from "../Pages/AddTutorials/AddTutorials";
 import FindTutors from "../Pages/FindTutors/FindTutors";
 import TutorDetails from "../Pages/TutorDetails/TutorDetails";
 import PrivateRoute from "./PrivateRoute";
+import MyBookedTutor from "../Pages/MyBookedTutor/MyBookedTutor";
+import MyTutorial from "../Pages/MYTutorial/MyTutorial";
 
 
 const router = createBrowserRouter([
@@ -34,6 +36,15 @@ const router = createBrowserRouter([
          loader: ({params}) => fetch(`http://localhost:5000/language/${params.id}`)
           
         },
+        {
+        path:"/bookedTutor",
+        element:<MyBookedTutor></MyBookedTutor>
+        },
+        {
+         path:"/myTutorial",
+         element:<MyTutorial></MyTutorial>
+        },
+
         {
             path:"/login",
             element:<Login></Login>
