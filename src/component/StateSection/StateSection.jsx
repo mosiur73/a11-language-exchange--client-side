@@ -6,7 +6,7 @@ const StateSection = () => {
     
     useEffect(()=>{
         const fetchAllLanguage = async () => {
-            const { data } = await axios.get(`http://localhost:5000/language`)
+            const { data } = await axios.get(`https://assignment11-language-exchange-server.vercel.app/language`)
             setLanguage(data)
           }
         fetchAllLanguage()

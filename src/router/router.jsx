@@ -34,7 +34,7 @@ const router = createBrowserRouter([
         {
           path:"/language/:id",
           element:<PrivateRoute><TutorDetails></TutorDetails></PrivateRoute>,
-         loader: ({params}) => fetch(`http://localhost:5000/language/${params.id}`)
+         loader: ({params}) => fetch(`https://assignment11-language-exchange-server.vercel.app/language/${params.id}`)
           
         },
         {
@@ -48,7 +48,7 @@ const router = createBrowserRouter([
         {
           path:"/update/:id",
           element:<UpdateTutor></UpdateTutor>,
-          loader:({params})=>fetch(`http://localhost:5000/language/${params.id}`)
+          loader:({params})=>fetch(`https://assignment11-language-exchange-server.vercel.app/language/${params.id}`)
         },
 
         {

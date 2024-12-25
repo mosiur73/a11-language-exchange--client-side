@@ -22,7 +22,7 @@ const UpdateTutor = () => {
     
         const fromData = { name, email, language, price, review, image, description }
         console.log(fromData);
-        fetch(`http://localhost:5000/language/${_id}`,{
+        fetch(`https://assignment11-language-exchange-server.vercel.app/language/${_id}`,{
             method:'PUT',
             headers:{
              'content-type':'application/json'

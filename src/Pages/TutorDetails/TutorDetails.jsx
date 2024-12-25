@@ -22,7 +22,7 @@ const TutorDetails = () => {
     
     const handleBooking = async () => {
       
-        fetch('http://localhost:5000/booked-tutor',{
+        fetch('https://assignment11-language-exchange-server.vercel.app/booked-tutor',{
           method:'POST',
           headers:{
             'content-type' :'application/json'

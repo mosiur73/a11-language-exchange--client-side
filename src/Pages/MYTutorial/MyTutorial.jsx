@@ -9,7 +9,7 @@ const MyTutorial = () => {
     const [tutors,setTutors]=useState([])
 
      useEffect(()=>{
-            fetch(`http://localhost:5000/language?email=${user?.email}`)
+            fetch(`https://assignment11-language-exchange-server.vercel.app/language?email=${user?.email}`)
             .then(res =>res.json())
             .then(data =>{
                 setTutors(data)
@@ -28,7 +28,7 @@ const MyTutorial = () => {
               }).then((result) => {
                 if (result.isConfirmed) {
                
-                fetch(`http://localhost:5000/language/${id}`,{
+                fetch(`https://assignment11-language-exchange-server.vercel.app/language/${id}`,{
                     method:'DELETE'
                 })
                 .then(res =>res.json())

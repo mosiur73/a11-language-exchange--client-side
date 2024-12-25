@@ -10,12 +10,12 @@ const MyBookedTutor = () => {
     const axiosSecure=AxiosSecure()
 
     useEffect(()=>{
-        // fetch(`http://localhost:5000/booked-tutor?email=${user?.email}`)
+        // fetch(`https://assignment11-language-exchange-server.vercel.app/booked-tutor?email=${user?.email}`)
         // .then(res =>res.json())
         // .then(data =>{
         //     setBooked(data)
         // })
-        // axios.get(`http://localhost:5000/booked-tutor?email=${user?.email}`,{withCredentials:true})
+        // axios.get(`https://assignment11-language-exchange-server.vercel.app/booked-tutor?email=${user?.email}`,{withCredentials:true})
         // .then(res =>setBooked(res.data))
         axiosSecure.get(`/booked-tutor?email=${user?.email}`)
         .then(res =>setBooked(res.data))
@@ -25,7 +25,7 @@ const MyBookedTutor = () => {
 
   //   const handleReview = async (tutorId) => {
   //     try {
-  //         const response = await fetch(`http://localhost:5000/booked-tutor/${tutorId}`, {
+  //         const response = await fetch(`https://assignment11-language-exchange-server.vercel.app/booked-tutor/${tutorId}`, {
   //             method: 'PATCH',
   //             headers: { 'Content-Type': 'application/json' },
   //         });

@@ -23,7 +23,7 @@ const AddTutorials = () => {
     const fromData = { name, email, language, price, review, image, description }
     console.log(fromData)
 
-    fetch('http://localhost:5000/language', {
+    fetch('https://assignment11-language-exchange-server.vercel.app/language', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
