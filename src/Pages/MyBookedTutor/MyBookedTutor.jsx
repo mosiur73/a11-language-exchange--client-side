@@ -1,38 +1,46 @@
 import React, { useContext, useEffect, useState } from 'react';
 import AuthContext from '../../Provider/AuthContext';
+import axios from 'axios';
+import AxiosSecure from '../../component/Hooks/AxiosSecure';
 
 
 const MyBookedTutor = () => {
     const {user}=useContext(AuthContext)
     const [booked,setBooked]=useState([])
+    const axiosSecure=AxiosSecure()
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/booked-tutor?email=${user?.email}`)
-        .then(res =>res.json())
-        .then(data =>{
-            setBooked(data)
-        })
+        // fetch(`http://localhost:5000/booked-tutor?email=${user?.email}`)
+        // .then(res =>res.json())
+        // .then(data =>{
+        //     setBooked(data)
+        // })
+        // axios.get(`http://localhost:5000/booked-tutor?email=${user?.email}`,{withCredentials:true})
+        // .then(res =>setBooked(res.data))
+        axiosSecure.get(`/booked-tutor?email=${user?.email}`)
+        .then(res =>setBooked(res.data))
+
     },[user?.email])
    
 
-    const handleReview = async (tutorId) => {
-      try {
-          const response = await fetch(`http://localhost:5000/booked-tutor/${tutorId}`, {
-              method: 'PATCH',
-              headers: { 'Content-Type': 'application/json' },
-          });
-          if (response.ok) {
-              // Increment review count locally for better UX
-              setBooked(prevBooked =>
-                  prevBooked.map(item =>
-                      item._id === tutorId ? { ...item, review: (item.review || 0) + 1 } : item
-                  )
-              );
-          }
-      } catch (error) {
-          console.error('Error updating review:', error);
-      }
-  };
+  //   const handleReview = async (tutorId) => {
+  //     try {
+  //         const response = await fetch(`http://localhost:5000/booked-tutor/${tutorId}`, {
+  //             method: 'PATCH',
+  //             headers: { 'Content-Type': 'application/json' },
+  //         });
+  //         if (response.ok) {
+  //             // Increment review count locally for better UX
+  //             setBooked(prevBooked =>
+  //                 prevBooked.map(item =>
+  //                     item._id === tutorId ? { ...item, review: (item.review || 0) + 1 } : item
+  //                 )
+  //             );
+  //         }
+  //     } catch (error) {
+  //         console.error('Error updating review:', error);
+  //     }
+  // };
     return (
        
         <div>
