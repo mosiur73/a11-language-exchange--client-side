@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import AuthContext from '../../Provider/AuthContext';
+import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 
 const MyTutorial = () => {
@@ -13,6 +15,38 @@ const MyTutorial = () => {
                 setTutors(data)
             })
         },[user?.email])
+
+        const handleDelete=id =>{
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+              }).then((result) => {
+                if (result.isConfirmed) {
+               
+                fetch(`http://localhost:5000/language/${id}`,{
+                    method:'DELETE'
+                })
+                .then(res =>res.json())
+                .then(data =>{
+                    console.log('delete is done',data)
+                    if(data.deletedCount){
+                         Swal.fire({
+                    title: "Deleted!",
+                    text: "Your file has been deleted.",
+                    icon: "success"
+                  });
+                  const remainingTutor=tutors.filter(tutor =>tutor._id !== id)
+                  setTutors(remainingTutor)
+                    }
+                })
+                }
+              });
+        }
    console.log(tutors)
     return (
         <div>
@@ -68,11 +102,13 @@ const MyTutorial = () => {
                 <div>{tutor.price}</div>
             </td>
             <th>
-              <button className="btn btn-info btn-xs">review</button>
+              <button className="btn btn-info btn-xs">{tutor.review}</button>
             </th>
             <td>
+            <Link to={`/update/${tutor._id}`}>
             <button className="btn btn-error btn-xs mr-2 p-2 text-center pb-5">Edit</button>
-            <button className="btn btn-warning btn-xs pb-5 p-2">Delete</button>
+            </Link>
+            <button onClick={()=>handleDelete(tutor._id)} className="btn btn-warning btn-xs pb-5 p-2">Delete</button>
             </td>
           </tr>)
       }

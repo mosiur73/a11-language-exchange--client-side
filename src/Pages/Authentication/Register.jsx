@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { FaGoogle } from 'react-icons/fa6';
+import React, { useContext, useState } from 'react';
+import { FaEyeSlash, FaGoogle, FaRegEye } from 'react-icons/fa6';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router-dom';
 import bgImg from '../../assets/lottie/register.json'
@@ -8,6 +8,8 @@ import AuthContext from '../../Provider/AuthContext';
 import toast from 'react-hot-toast';
 
 const Register = () => {
+  const [showPassword, setShowPassword] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
   const {createUser,singInWithGoogle,setUser,updateUserProfile}=useContext(AuthContext)
   const navigate = useNavigate()
 
@@ -19,6 +21,19 @@ const Register = () => {
     const photo = form.photo.value
     const password = form.password.value
     console.log({ email, password, name, photo })
+
+    setErrorMessage('')
+
+    if (password.length < 6) {
+      setErrorMessage('Password should be 6 characters or longer');
+      return;
+  }
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+
+  if (!passwordRegex.test(password)) {
+      setErrorMessage('At least one uppercase, one lowercase, one number, one special character');
+      return;
+  }
    
     try {
       //2. User Registration
@@ -131,24 +146,35 @@ const Register = () => {
                 />
               </div>
   
-              <div className='mt-4'>
-                <div className=''>
-                  <label
-                    className='block mb-2 text-sm font-medium text-gray-600 '
-                    htmlFor='loggingPassword'
-                  >
-                    Password
-                  </label>
-                </div>
-  
-                <input
-                  id='loggingPassword'
-                  autoComplete='current-password'
-                  name='password'
-                  className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
-                  type='password'
-                />
-              </div>
+                           <div className='mt-4 relative'>
+                             <div className=' '>
+                               <label
+                                 className='block mb-2 text-sm font-medium text-gray-600 '
+                                 htmlFor='loggingPassword'
+                               >
+                                 Password
+                               </label>
+                             </div>
+               
+                             <input
+                               id='loggingPassword'
+                               autoComplete='current-password'
+                               name='password'
+                               className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
+                               type={showPassword ? 'text' : "password"} 
+                             />
+                              <div
+                         onClick={() => setShowPassword(!showPassword)}
+                         className=' absolute right-4 top-10'>
+             
+                         {
+                           showPassword ? <FaEyeSlash /> : <FaRegEye />
+                         }
+                       </div>
+                           </div>
+                           {
+                errorMessage && <p className='text-red-600'>{errorMessage}</p>
+            }
               <div className='mt-6'>
                 <button
                   type='submit'

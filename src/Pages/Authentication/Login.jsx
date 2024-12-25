@@ -1,12 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import loginLottie from '../../assets/lottie/login.json'
 import Lottie from 'lottie-react';
 import toast from 'react-hot-toast';
 import AuthContext from '../../Provider/AuthContext';
+import { FaEyeSlash, FaRegEye } from 'react-icons/fa';
 
 const Login = () => {
+  const [showPassword, setShowPassword] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
   const {singInUser,singInWithGoogle}=useContext(AuthContext)
   const navigate=useNavigate()
   const location = useLocation()
@@ -29,7 +32,7 @@ const Login = () => {
     })
     .catch(error => {
         console.log(error);
-        toast.error(err?.message)
+        toast.error(error?.message)
     })
   }
 
@@ -101,7 +104,7 @@ const Login = () => {
                 />
               </div>
   
-              <div className='mt-4'>
+              <div className='mt-4 relative'>
                 <div className=' '>
                   <label
                     className='block mb-2 text-sm font-medium text-gray-600 '
@@ -116,9 +119,18 @@ const Login = () => {
                   autoComplete='current-password'
                   name='password'
                   className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
-                  type='password'
+                  type={showPassword ? 'text' : "password"} 
                 />
+                 <div
+            onClick={() => setShowPassword(!showPassword)}
+            className=' absolute right-4 top-10'>
+
+            {
+              showPassword ? <FaEyeSlash /> : <FaRegEye />
+            }
+          </div>
               </div>
+             
               <div className='mt-6'>
                 <button
                   type='submit'
