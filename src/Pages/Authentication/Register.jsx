@@ -6,6 +6,7 @@ import bgImg from '../../assets/lottie/register.json'
 import Lottie from 'lottie-react';
 import AuthContext from '../../Provider/AuthContext';
 import toast from 'react-hot-toast';
+import Swal from 'sweetalert2';
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false)
@@ -44,7 +45,8 @@ const Register = () => {
       toast.success('Signup Successful')
       navigate('/')
       const newUser={name,email,photo}
-      fetch('http://localhost:5000//users', {
+
+      fetch('https://assignment11-language-exchange-server.vercel.app/users', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -53,10 +55,18 @@ const Register = () => {
     })
         .then(res => res.json())
         .then(data => {
+          console.log(data)
+           if (data.insertedId) {
+          
+                    Swal.fire({
+                      position: "top-start",
+                      icon: "success",
+                      title: "User Acount has created successfully",
+                      showConfirmButton: false,
+                      timer: 2000
+                    });
+                  }
             
-            if(data.insertedId){
-                console.log('user created in db')
-            }
         })
       
     } catch (err) {
