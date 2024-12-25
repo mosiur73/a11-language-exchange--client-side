@@ -43,6 +43,22 @@ const Register = () => {
       setUser({ ...result.user, photoURL: photo, displayName: name })
       toast.success('Signup Successful')
       navigate('/')
+      const newUser={name,email,photo}
+      fetch('http://localhost:5000//users', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(newUser)
+    })
+        .then(res => res.json())
+        .then(data => {
+            
+            if(data.insertedId){
+                console.log('user created in db')
+            }
+        })
+      
     } catch (err) {
       console.log(err)
       toast.error(err?.message)

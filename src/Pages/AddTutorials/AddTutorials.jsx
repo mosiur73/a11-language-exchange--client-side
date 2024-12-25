@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import { Zoom } from 'react-awesome-reveal';
 
 const AddTutorials = () => {
   const { user } = useContext(AuthContext)
@@ -56,7 +57,8 @@ const AddTutorials = () => {
           Add Tutorials
         </h2>
 
-        <form onSubmit={handleSubmit}>
+       <Zoom>
+       <form onSubmit={handleSubmit}>
           <div className='grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2'>
 
             <div>
@@ -165,6 +167,7 @@ const AddTutorials = () => {
             </button>
           </div>
         </form>
+       </Zoom>
       </section>
     </div>
   );

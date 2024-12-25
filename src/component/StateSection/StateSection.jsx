@@ -11,7 +11,7 @@ const StateSection = () => {
           }
         fetchAllLanguage()
     },[])
-    console.log(language)
+    // console.log(language)
      
     const totalReviews = language.reduce((total, lang) => total + (lang.reviews?.length || 0), 0);
      console.log(totalReviews)
