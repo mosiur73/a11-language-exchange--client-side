@@ -3,6 +3,7 @@ import { FaArrowRightFromBracket } from 'react-icons/fa6';
 import { Link, NavLink } from 'react-router-dom';
 import AuthContext from '../../Provider/AuthContext';
 import toast from 'react-hot-toast';
+import { Tooltip } from 'react-tooltip';
 
 const Navbar = () => {
   const { user,signOutUser,theme,toggleTheme } = useContext(AuthContext)
@@ -66,13 +67,14 @@ const Navbar = () => {
           user ? <>
           
             <button onClick={handleSignOut} className="btn">Sign out</button>
-            <div title={user?.displayName} className='w-10 rounded-full ml-2'>
+            <div data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName}  title={user?.displayName} className='w-10 rounded-full ml-2'>
                 <img className='rounded-full'
                   referrerPolicy='no-referrer'
                   alt='no Photo'
                   src={user?.photoURL}
                 />
               </div>
+              <Tooltip id="my-tooltip" />
           </> : <>
             <Link to="/register"> <h2 className='text-red-300 text-xl mr-3'>Register ?</h2></Link>
             <Link to="/login">

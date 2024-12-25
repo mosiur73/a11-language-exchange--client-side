@@ -39,11 +39,11 @@ const router = createBrowserRouter([
         },
         {
         path:"/bookedTutor",
-        element:<MyBookedTutor></MyBookedTutor>
+        element:<PrivateRoute><MyBookedTutor></MyBookedTutor></PrivateRoute>
         },
         {
          path:"/myTutorial",
-         element:<MyTutorial></MyTutorial>
+         element:<PrivateRoute><MyTutorial></MyTutorial></PrivateRoute>
         },
         {
           path:"/update/:id",

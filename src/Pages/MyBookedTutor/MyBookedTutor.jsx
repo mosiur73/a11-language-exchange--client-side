@@ -13,7 +13,26 @@ const MyBookedTutor = () => {
             setBooked(data)
         })
     },[user?.email])
-    console.log(booked)
+   
+
+    const handleReview = async (tutorId) => {
+      try {
+          const response = await fetch(`http://localhost:5000/booked-tutor/${tutorId}`, {
+              method: 'PATCH',
+              headers: { 'Content-Type': 'application/json' },
+          });
+          if (response.ok) {
+              // Increment review count locally for better UX
+              setBooked(prevBooked =>
+                  prevBooked.map(item =>
+                      item._id === tutorId ? { ...item, review: (item.review || 0) + 1 } : item
+                  )
+              );
+          }
+      } catch (error) {
+          console.error('Error updating review:', error);
+      }
+  };
     return (
        
         <div>
@@ -68,7 +87,7 @@ const MyBookedTutor = () => {
             <div>{book.price}</div>
         </td>
         <th>
-          <button className="btn btn-info btn-xs">review</button>
+          <button  onClick={() => handleReview(book._id)} className="btn btn-info btn-xs">review</button>
         </th>
        
       </tr>)
