@@ -35,7 +35,7 @@ const StateSection = () => {
     
     useEffect(()=>{
       const fetchAllReview = async () => {
-          const { data } = await axios.get(`http://localhost:5000/reviews`)
+          const { data } = await axios.get(`https://assignment11-language-exchange-server.vercel.app/reviews`)
           setReview(data)
         }
         fetchAllReview()

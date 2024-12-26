@@ -8,6 +8,19 @@
      4.Language Learning through Interaction: 
      5.Skill Development
 
+
+# Features
+
+Tutor Categories: Find tutors based on preferred languages.
+
+Interactive Cards: Showcase tutors with language, experience, and other details.
+
+Cultural Forums: Engage with learners and tutors in discussions about culture and language.
+
+Customizable Preferences: Tailor your learning experience to fit your goals.
+
+
+
  #npm packages 
  1. reaet icon
  2. swiper

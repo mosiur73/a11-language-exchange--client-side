@@ -4,20 +4,14 @@ import { Zoom } from 'react-awesome-reveal';
 import { FaAngleRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
+
 const Category = () => {
     const [languages,setLanguage]=useState([])
     
-    // useEffect(()=>{
-    //     const fetchAllLanguage = async () => {
-    //         const { data } = await axios.get(`https://assignment11-language-exchange-server.vercel.app/language`)
-    //         setLanguage(data)
-    //       }
-    //     fetchAllLanguage()
-    // },[])
-    // console.log(languages)
+   
     useEffect(() => {
       const fetchAllLanguage = async () => {
-          const { data } = await axios.get(`http://localhost:5000/language`);
+          const { data } = await axios.get(`https://assignment11-language-exchange-server.vercel.app/language`);
 
           // Remove duplicates by using a Map
           const uniqueLanguages = Array.from(
@@ -28,14 +22,16 @@ const Category = () => {
       };
       fetchAllLanguage();
   }, []);
+  
+  
     return (
         <div className="p-4">
       <h2 className="text-2xl font-bold mb-4 text-center">Language Categories</h2>
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
     <Zoom>
         {languages.map((language) => (
-        <Link to="/findTutors" key={language._id}>
-          <div
+        
+          <div  key={language._id}
             
             className="border rounded-lg p-4 shadow-sm hover:shadow-md transition-all bg-white flex flex-col"
           >
@@ -43,14 +39,21 @@ const Category = () => {
           <div className='flex gap-5 items-center'>
             <img className='w-20' src={language.image} alt="" />
             <div> 
-                <h2>{language.language} tutors</h2>
+                <h2 className='text-xl font-semibold'>
+                 {language.language}
+                  </h2>
                 <p>120+ teacher</p>
+            </div>
+            <div>
+            <Link to={`/tutorCategory/${language._id}`}>
+              <button className='bg-green-500 text-white py-2 px-8 rounded-md hover:bg-green-600'>go</button>
+              </Link>
             </div>
            </div>
            <div><FaAngleRight className='text-3xl' /></div>
           </div>
           </div>
-        </Link>
+       
         ))}
     </Zoom>
       </div>

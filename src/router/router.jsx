@@ -53,9 +53,9 @@ const router = createBrowserRouter([
           loader:({params})=>fetch(`https://assignment11-language-exchange-server.vercel.app/language/${params.id}`)
         },
         {
-          path:"/tutorCategory",
+          path:"/tutorCategory/:language",
           element:<TutorCategory></TutorCategory>,
-          
+          loader: ({params}) => fetch(`https://assignment11-language-exchange-server.vercel.app/language/${params.language}`)
         },
 
         {

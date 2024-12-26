@@ -4,6 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 import AuthContext from '../../Provider/AuthContext';
 import toast from 'react-hot-toast';
 import { Tooltip } from 'react-tooltip';
+import { FaLanguage } from 'react-icons/fa';
 
 const Navbar = () => {
   const { user,signOutUser,theme,toggleTheme } = useContext(AuthContext)
@@ -50,7 +51,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-2xl ">Language Exchange </a>
+        <a className="btn btn-ghost text-2xl "> <FaLanguage className='text-2xl mr-2' />Language Exchange </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
