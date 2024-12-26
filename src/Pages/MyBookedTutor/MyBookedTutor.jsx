@@ -10,11 +10,7 @@ const MyBookedTutor = () => {
     const axiosSecure=AxiosSecure()
 
     useEffect(()=>{
-        // fetch(`https://assignment11-language-exchange-server.vercel.app/booked-tutor?email=${user?.email}`)
-        // .then(res =>res.json())
-        // .then(data =>{
-        //     setBooked(data)
-        // })
+       
         // axios.get(`https://assignment11-language-exchange-server.vercel.app/booked-tutor?email=${user?.email}`,{withCredentials:true})
         // .then(res =>setBooked(res.data))
         axiosSecure.get(`/booked-tutor?email=${user?.email}`)
@@ -23,24 +19,32 @@ const MyBookedTutor = () => {
     },[user?.email])
    
 
-  //   const handleReview = async (tutorId) => {
-  //     try {
-  //         const response = await fetch(`https://assignment11-language-exchange-server.vercel.app/booked-tutor/${tutorId}`, {
-  //             method: 'PATCH',
-  //             headers: { 'Content-Type': 'application/json' },
-  //         });
-  //         if (response.ok) {
-  //             // Increment review count locally for better UX
-  //             setBooked(prevBooked =>
-  //                 prevBooked.map(item =>
-  //                     item._id === tutorId ? { ...item, review: (item.review || 0) + 1 } : item
-  //                 )
-  //             );
-  //         }
-  //     } catch (error) {
-  //         console.error('Error updating review:', error);
-  //     }
+
+  
+  // const handleReview = (tutorId) => {
+    
+  //   console.log(tutorId)
+   
   // };
+  const handleReview = (tutorId) => {
+    console.log(tutorId); // Log tutorId to ensure it's passed correctly
+
+    // Make the POST request using axios
+    axios
+      .post('https://assignment11-language-exchange-server.vercel.app/reviews', {
+        tutorId: tutorId, // Pass tutorId to the backend
+       
+      })
+      .then((response) => {
+        console.log('Review submitted successfully:', response.data);
+        alert('Review submitted successfully!');
+      })
+      .catch((error) => {
+        // console.error('Error submitting review:', error);
+        alert('Error submitting review.');
+      });
+  };
+
     return (
        
         <div>
@@ -95,7 +99,7 @@ const MyBookedTutor = () => {
             <div>{book.price}</div>
         </td>
         <th>
-          <button  onClick={() => handleReview(book._id)} className="btn btn-info btn-xs">review</button>
+          <button  onClick={() => handleReview(book.tutorId)} className="btn btn-info btn-xs">review</button>
         </th>
        
       </tr>)
