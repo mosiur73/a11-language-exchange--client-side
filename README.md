@@ -1,4 +1,4 @@
-
+ # Live link : https://language-exchange-f11fa.web.app/
 
 # project Name : Language Exchange 
  # purpose :
@@ -22,9 +22,9 @@ Customizable Preferences: Tailor your learning experience to fit your goals.
 
 
  #npm packages 
- 1. reaet icon
+ 1. react icon
  2. swiper
  3. axios
  4. tooltip
  5. cookies 
- 6.react awsome revel
+ 6.react awesome revel

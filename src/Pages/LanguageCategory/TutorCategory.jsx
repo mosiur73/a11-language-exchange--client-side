@@ -1,20 +1,12 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useParams } from 'react-router-dom';
 
 
 const TutorCategory = () => {
       const category=useLoaderData()
-      const [tutors,setTutors]=useState([])
-     
-
-      useEffect(()=>{
-        const fetchAllLanguage = async () => {
-            const { data } = await axios.get(`https://assignment11-language-exchange-server.vercel.app/language`)
-            setTutors(data)
-          }
-        fetchAllLanguage()
-    },[])
+      // console.log(category)
+    
       
     return (
         <div className='flex justify-center my-10'>

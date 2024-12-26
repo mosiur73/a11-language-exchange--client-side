@@ -72,7 +72,7 @@ const MyTutorial = () => {
     <tbody>
       {/* row 1 */}
       {
-        tutors.map((tutor,index) =>   <tr key={tutor._id}>
+        tutors.map((tutor,index) =>   <tr key={tutor._id} className='shadow-md rounded-lg hover:shadow-2xl transition-shadow'>
              
              <td>{index + 1}</td>
             <td>

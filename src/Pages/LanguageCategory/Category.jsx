@@ -30,8 +30,8 @@ const Category = () => {
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
     <Zoom>
         {languages.map((language) => (
-        
-          <div  key={language._id}
+         <Link to={`/tutorCategory/${language._id}`}  key={language._id}>
+          <div 
             
             className="border rounded-lg p-4 shadow-sm hover:shadow-md transition-all bg-white flex flex-col"
           >
@@ -45,14 +45,15 @@ const Category = () => {
                 <p>120+ teacher</p>
             </div>
             <div>
-            <Link to={`/tutorCategory/${language._id}`}>
+           
               <button className='bg-green-500 text-white py-2 px-8 rounded-md hover:bg-green-600'>go</button>
-              </Link>
+              
             </div>
            </div>
            <div><FaAngleRight className='text-3xl' /></div>
           </div>
           </div>
+          </Link>
        
         ))}
     </Zoom>

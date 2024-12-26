@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import AuthContext from '../../Provider/AuthContext';
 import axios from 'axios';
 import AxiosSecure from '../../component/Hooks/AxiosSecure';
+import { Zoom } from 'react-awesome-reveal';
 
 
 const MyBookedTutor = () => {
@@ -69,6 +70,7 @@ const MyBookedTutor = () => {
 </thead>
 <tbody>
   {/* row 1 */}
+ 
   {
     booked.map((book,index) => <tr key={book._id}>
         <td>{index + 1}</td>

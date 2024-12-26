@@ -51,7 +51,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-2xl "> <FaLanguage className='text-2xl mr-2' />Language Exchange </a>
+        <a className="btn btn-ghost text-2xl "> <FaLanguage className='text-2xl mr-2' />Language Center </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
