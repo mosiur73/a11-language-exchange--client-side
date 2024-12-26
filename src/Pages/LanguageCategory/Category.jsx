@@ -7,14 +7,27 @@ import { Link } from 'react-router-dom';
 const Category = () => {
     const [languages,setLanguage]=useState([])
     
-    useEffect(()=>{
-        const fetchAllLanguage = async () => {
-            const { data } = await axios.get(`https://assignment11-language-exchange-server.vercel.app/language`)
-            setLanguage(data)
-          }
-        fetchAllLanguage()
-    },[])
+    // useEffect(()=>{
+    //     const fetchAllLanguage = async () => {
+    //         const { data } = await axios.get(`https://assignment11-language-exchange-server.vercel.app/language`)
+    //         setLanguage(data)
+    //       }
+    //     fetchAllLanguage()
+    // },[])
     // console.log(languages)
+    useEffect(() => {
+      const fetchAllLanguage = async () => {
+          const { data } = await axios.get(`http://localhost:5000/language`);
+
+          // Remove duplicates by using a Map
+          const uniqueLanguages = Array.from(
+              new Map(data.map((item) => [item.language, item])).values()
+          );
+
+          setLanguage(uniqueLanguages);
+      };
+      fetchAllLanguage();
+  }, []);
     return (
         <div className="p-4">
       <h2 className="text-2xl font-bold mb-4 text-center">Language Categories</h2>

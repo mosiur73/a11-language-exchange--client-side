@@ -11,6 +11,8 @@ import PrivateRoute from "./PrivateRoute";
 import MyBookedTutor from "../Pages/MyBookedTutor/MyBookedTutor";
 import MyTutorial from "../Pages/MYTutorial/MyTutorial";
 import UpdateTutor from "../component/UpdateTutor/UpdateTutor";
+import TutorCategory from "../Pages/LanguageCategory/TutorCategory";
+import Resorce from "../Pages/Resorce/Resorce";
 
 
 const router = createBrowserRouter([
@@ -50,6 +52,11 @@ const router = createBrowserRouter([
           element:<UpdateTutor></UpdateTutor>,
           loader:({params})=>fetch(`https://assignment11-language-exchange-server.vercel.app/language/${params.id}`)
         },
+        {
+          path:"/tutorCategory",
+          element:<TutorCategory></TutorCategory>,
+          
+        },
 
         {
             path:"/login",
@@ -58,6 +65,10 @@ const router = createBrowserRouter([
         {
             path:"/register",
             element:<Register></Register>
+        },
+        {
+          path:"/resources",
+          element:<Resorce></Resorce>
         }
       ]
     },
