@@ -6,7 +6,7 @@ const FindTutorCard = ({lang}) => {
     
     return (
      
-      <div className="card bg-base-100 w-96 shadow-2xl">
+      <div className="card bg-base-100 w-72 h-96 shadow-2xl">
       <figure className="">
         <img
           src={image}
