@@ -4,8 +4,7 @@
 ## 🚀 Overview  
 Language Exchange is a platform designed to facilitate affordable language learning, cultural exchange, and skill development through community interaction.
 
-## 📸 Screenshot  
-*(Include a screenshot of your project here, if possible.)*
+
 
 ## 🛠 Technologies Used  
 - **React.js**  
