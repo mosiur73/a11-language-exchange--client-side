@@ -38,7 +38,7 @@ const Category = () => {
           <div className='flex justify-between items-center py-6'>
           <div className='flex gap-5 items-center'>
             <img className='w-20' src={language.image} alt="" />
-            <div> 
+            <div className='text-black dark:text-white'> 
                 <h2 className='text-xl font-semibold'>
                  {language.language}
                   </h2>

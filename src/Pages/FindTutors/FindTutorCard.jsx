@@ -10,7 +10,7 @@ const FindTutorCard = ({lang}) => {
       <figure className="">
         <img
           src={image}
-          alt="Shoes"
+          alt="not found"
           className="" />
       </figure>
       <div className="card-body items-center text-center">

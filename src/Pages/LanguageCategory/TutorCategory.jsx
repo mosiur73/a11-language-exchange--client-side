@@ -16,7 +16,7 @@ const TutorCategory = () => {
     <img
     className='w-44 '
       src={category.image}
-      alt="Movie" />
+      alt="Not Found" />
   </figure>
   <div className="card-body">
     <h2 className="card-title">{category.language}</h2>
