@@ -33,8 +33,9 @@ const Navbar = () => {
 
   </>
   return (
-    <div className="navbar fixed top-0 z-10 left-0 right-0 bg-base-100">
-      <div className="navbar-start">
+    <div className="navbar fixed top-0 z-10 left-0 right-0 bg-base-200 shadow-lg">
+     
+     <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
@@ -65,8 +66,8 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         <div className='navbar'>
-          <button onClick={toggleTheme} className="theme-toggle-btn mr-4">
-            {theme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode'}
+          <button onClick={toggleTheme} className="theme-toggle-btn  bg-gray-500">
+            {theme === 'light' ? '🌙 ' : '☀️ '}
           </button>
         </div>
         {
@@ -91,6 +92,7 @@ const Navbar = () => {
 
 
       </div>
+    
     </div>
   );
 };
