@@ -7,25 +7,30 @@ import { Tooltip } from 'react-tooltip';
 import { FaLanguage } from 'react-icons/fa';
 
 const Navbar = () => {
-  const { user,signOutUser,theme,toggleTheme } = useContext(AuthContext)
+  const { user, signOutUser, theme, toggleTheme } = useContext(AuthContext)
 
   const handleSignOut = () => {
     signOutUser()
-        .then(() => {
-            console.log('successful sign out')
-            toast.success('successful sign out')
-        })
-        .catch(error => {
-            console.log('failed to sign out .stay here. dont leave me alone')
-        })
-}
+      .then(() => {
+        console.log('successful sign out')
+        toast.success('successful sign out')
+      })
+      .catch(error => {
+        console.log('failed to sign out .stay here. dont leave me alone')
+      })
+  }
 
   const links = < >
     <li><NavLink to="/">Home</NavLink></li>
     <li><NavLink to="/findTutors">Find tutors</NavLink></li>
-    <li><NavLink to="/addTutorials">Add Tutorials</NavLink></li>
-    <li><NavLink to="/bookedTutor">My booked </NavLink></li>
-    <li><NavLink to="/myTutorial">My Tutorials </NavLink></li>
+    {user && (
+      <>
+        <li><NavLink to="/addTutorials">Add Tutorials</NavLink></li>
+        <li><NavLink to="/bookedTutor">My booked </NavLink></li>
+        <li><NavLink to="/myTutorial">My Tutorials </NavLink></li>
+      </>
+    )}
+
   </>
   return (
     <div className="navbar fixed top-0 z-10 left-0 right-0 bg-base-100">
@@ -59,23 +64,23 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-      <div className='navbar'>
- <button onClick={toggleTheme} className="theme-toggle-btn mr-4">
-                {theme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode'}
-            </button>
- </div>
+        <div className='navbar'>
+          <button onClick={toggleTheme} className="theme-toggle-btn mr-4">
+            {theme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode'}
+          </button>
+        </div>
         {
           user ? <>
-          
+
             <button onClick={handleSignOut} className="btn">Sign out</button>
-            <div data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName}  title={user?.displayName} className='w-10 rounded-full ml-2'>
-                <img className='rounded-full'
-                  referrerPolicy='no-referrer'
-                  alt='no Photo'
-                  src={user?.photoURL}
-                />
-              </div>
-              <Tooltip id="my-tooltip" />
+            <div data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName} title={user?.displayName} className='w-10 rounded-full ml-2'>
+              <img className='rounded-full'
+                referrerPolicy='no-referrer'
+                alt='no Photo'
+                src={user?.photoURL}
+              />
+            </div>
+            <Tooltip id="my-tooltip" />
           </> : <>
             <Link to="/register"> <h2 className='text-red-300 text-xl mr-3'>Register ?</h2></Link>
             <Link to="/login">

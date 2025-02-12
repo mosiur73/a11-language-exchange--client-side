@@ -20,7 +20,7 @@ body {
     justify-content: space-between;
     padding: 1rem;
     background-color: var(--background-color);
-    border-bottom: 1px solid var(--text-color);
+    
 }
 
 .theme-toggle-btn {
