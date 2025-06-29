@@ -42,7 +42,7 @@ const SectionOne = () => {
     ];
     return (
         <div>
-             <div className="container mx-auto p-6">
+             <div className="container max-w-7xl mx-auto px-4 mt-6">
             <h2 className="text-3xl font-bold text-center mb-6">Upcoming Courses</h2>
             <p className="text-center text-gray-500 mb-8">Wait For a While</p>
             
@@ -50,14 +50,14 @@ const SectionOne = () => {
             <Zoom>
             {
                 courses.map((course) =>(
-                    <div key={course.id} className="card bg-base-100 w-96 shadow-2xl">
+                    <div key={course.id} className="card rounded-none bg-base-100 w-96 shadow-2xl">
                     <figure className="">
                       <img
                         src={course.image}
                         alt="Shoes"
-                        className="" />
+                        className="rounded-none" />
                     </figure>
-                    <div className="card-body items-center text-center">
+                    <div className="card-body bg-slate-50 items-center text-center">
                       <h2 className="card-title">{course.price}$</h2>
                       <p>{course.title}</p>
                       <div className="card-actions">
