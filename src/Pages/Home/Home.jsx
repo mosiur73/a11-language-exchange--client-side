@@ -7,6 +7,7 @@ import SectionTwo from '../ExtraSection/SectionTwo';
 import ServicesSection from '../../component/Service/Service';
 import LanguagesSection from '../../component/Language/LanguageSection';
 import StatsCard from '../../component/StateSection/Card';
+import Testimonials from '../../component/Testimonial/Testimonial';
 
 const Home = () => {
     return (
@@ -19,6 +20,7 @@ const Home = () => {
            <StatsCard></StatsCard>
            <SectionOne></SectionOne>
            <SectionTwo></SectionTwo>
+           <Testimonials></Testimonials>
            
         </div>
     );

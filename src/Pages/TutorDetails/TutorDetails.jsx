@@ -50,8 +50,8 @@ const TutorDetails = () => {
     };
     
     return (
-        <div className='flex justify-center my-10'>
-        <div className="card bg-base-100 w-96 shadow-xl">
+        <div className='flex justify-center my-10 mt-20'>
+        <div className="card bg-gray-400 w-96 shadow-xl">
   <figure className="px-10 pt-10">
     <img
       src={image}
