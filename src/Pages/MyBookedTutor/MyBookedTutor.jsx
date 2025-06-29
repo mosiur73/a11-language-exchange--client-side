@@ -49,7 +49,7 @@ const MyBookedTutor = () => {
     return (
        
         <div>
-        <h2 className='text-3xl text-center text-purple-300 font-medium'>My Booked Tutorial: {booked.length}</h2>
+        <h2 className='text-3xl text-center text-purple-300 font-medium mt-20'>My Booked Tutorial: {booked.length}</h2>
        
         <div>
         <div className="overflow-x-auto">
@@ -64,7 +64,7 @@ const MyBookedTutor = () => {
     <th>language</th>
     <th>Price</th>
     <th>Review</th>
-    <th>Action</th>
+  
    
   </tr>
 </thead>

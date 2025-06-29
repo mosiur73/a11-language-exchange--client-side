@@ -50,7 +50,7 @@ const MyTutorial = () => {
    console.log(tutors)
     return (
         <div>
-            <h2 className='text-3xl text-center text-purple-300 font-medium'>My Tutorial: {tutors.length}</h2>
+            <h2 className='text-3xl text-center text-purple-300 font-medium mt-20'>My Tutorial: {tutors.length}</h2>
            
             <div>
             <div className="overflow-x-auto">

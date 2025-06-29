@@ -7,7 +7,7 @@ import SectionTwo from '../ExtraSection/SectionTwo';
 
 const Home = () => {
     return (
-        <div className='space-y-6'>
+        <div className=''>
            <Caroucel></Caroucel>
            <StateSection></StateSection>
            <Category></Category>

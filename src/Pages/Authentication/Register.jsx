@@ -89,7 +89,7 @@ const Register = () => {
   }
 
     return (
-        <div className='flex justify-center items-center min-h-[calc(100vh-306px)] my-12'>
+        <div className='flex justify-center items-center min-h-[calc(100vh-306px)] my-12 mt-20'>
         <div className='flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl '>
           <div className='w-full px-6 py-8 md:px-8 lg:w-1/2'>
             <div className='flex justify-center mx-auto'>
@@ -216,9 +216,9 @@ const Register = () => {
   
               <Link
                 to='/login'
-                className='text-xs text-gray-500 uppercase  hover:underline'
+                className='text-xs text-gray-500 uppercase  hover:underline font-bold'
               >
-                or sign in
+                or Log in
               </Link>
   
               <span className='w-1/5 border-b  md:w-1/4'></span>
@@ -226,9 +226,7 @@ const Register = () => {
           </div>
           <div
             className='hidden bg-cover bg-center lg:block lg:w-1/2'
-            // style={{
-            //   backgroundImage: `url(${bgImg})`,
-            // }}
+         
             
           >
              <Lottie animationData={bgImg}></Lottie>
